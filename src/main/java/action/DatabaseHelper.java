@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DatabaseHelper {
 
-    Connection conn;
-    Statement stmt;
-    ResultSet rs;
+    public Connection conn;
+    public Statement stmt;
+    public ResultSet rs;
 
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -16,7 +16,7 @@ public class DatabaseHelper {
     private static final String USER = "root";
     private static final String PASS = "26452ekam";
 
-    DatabaseHelper() throws Exception {
+    public DatabaseHelper() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
 
         System.out.println("Connecting to database...");

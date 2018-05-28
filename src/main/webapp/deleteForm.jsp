@@ -11,6 +11,10 @@
 
 <s:form action="delete">
     <s:textfield name="username" label="Name" />
+
+    <s:if test = "#session.userAccess==1">
+        <s:textfield name="userId"  label="User ID"  />
+    </s:if>
     <s:submit/>
 </s:form>
 

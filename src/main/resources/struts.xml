@@ -12,20 +12,47 @@
             <result>/index.jsp</result>
         </action>
 
-        <action name="register" class="action.Create" method="execute">
-            <result name="success">/dist/viewContact.jsp</result>
+        <action name="registerUser" class="action.users.Register" method="execute">
+            <result name="success">/index.jsp</result>
         </action>
 
-        <action name="view" class="action.Read" method="execute">
-            <result name="success">/dist/viewContact.jsp</result>
+        <action name="loginUser" class="action.users.Login" method="execute">
+            <result name="success">/home.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
 
-        <action name="delete" class="action.Delete" method="execute">
-            <result name="success">/dist/thankyou.jsp</result>
+        <action name="logout" class="action.users.Logout" method="execute">
+            <result name="success">/index.jsp</result>
         </action>
 
-        <action name="update" class="action.Update" method="execute">
-            <result name="success">/dist/thankyou.jsp</result>
+        <action name="create" class="action.users.Create" method="execute">
+            <result name="success">/viewContact.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="view" class="action.users.Read" method="execute">
+            <result name="success">/viewContact.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="delete" class="action.users.Delete" method="execute">
+            <result name="success">/thankyou.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="update" class="action.users.Update" method="execute">
+            <result name="success">/thankyou.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="viewAllUsers" class="action.admin.ViewAllUsers" method="execute">
+            <result name="success">/allUsers.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="viewLogs" class="action.admin.ViewAllLogs" method="execute">
+            <result name="success">/allLogs.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
 
     </package>

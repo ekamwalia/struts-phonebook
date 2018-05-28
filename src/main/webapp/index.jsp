@@ -1,18 +1,30 @@
-<!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Basic Struts 2 Application - Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Register</title>
 </head>
 <body>
 <h1>Welcome To Phonebook </h1>
 
-<p><a href="dist/registerForm.jsp">Add a new contact</a></p>
-<p><a href="dist/viewForm.jsp">Find a contact</a></p>
-<p><a href="dist/updateForm.jsp">Update a contact</a></p>
-<p><a href="dist/deleteForm.jsp">Delete a contact</a></p>
+<p>
+<h3>Login now to manage your phonebook</h3>
+<s:form action="loginUser">
+    <s:textfield name="userBean.username" label="Username" />
+    <s:password name="userBean.password" label="Password" />
+    <s:submit/>
+</s:form>
+</p>
 
+<p>
+<h3>Not a user yet? Register Now</h3>
+<s:form action="registerUser">
+    <s:textfield name="userBean.username" label="Username" />
+    <s:password name="userBean.password" label="Password" />
+    <s:submit/>
+</s:form>
+</p>
 </body>
 </html>

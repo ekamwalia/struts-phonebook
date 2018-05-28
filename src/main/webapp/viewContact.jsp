@@ -4,15 +4,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>View</title>
+    <title>Phonebook</title>
 </head>
 <body>
-<h3>Find a contact in your Phonebook</h3>
+<p>Viewing contact</p>
+<p>Contact information: <s:property value="personBean" /> </p>
 
-<s:form action="view">
-    <s:textfield name="username" label="Name" />
-    <s:submit/>
-</s:form>
-
+<p><a href="updateForm.jsp">Update this contact</a>.</p>
+<p><a href="<s:url action='index' />">Return to home page</a></p>
 </body>
 </html>
