@@ -24,7 +24,6 @@ public class ViewAllUsers extends ActionSupport{
 
             while(db.rs.next()) {
 
-                System.out.println("HERE in the result set!!!! -----------------------\n");
                 User tempUser = new User();
                 tempUser.setId(db.rs.getInt("id"));
                 tempUser.setUsername(db.rs.getString("username"));
@@ -35,7 +34,6 @@ public class ViewAllUsers extends ActionSupport{
 
             users = rowValues.toArray(new User[rowValues.size()]);
 
-            System.out.println("HERE !!!! -----------------------\n\n\n\n\n\n\n\n");
             for(int i=0,n=users.length;i<n;i++) {
                 System.out.println(users[i].toString());
             }
@@ -46,6 +44,8 @@ public class ViewAllUsers extends ActionSupport{
             System.out.println("SQLState:\n\n\n " + ex.getSQLState());
             System.out.println("VendorError:\n\n\n " + ex.getErrorCode());
 
+            return ERROR;
+        } catch(Exception e) {
             return ERROR;
         }
 

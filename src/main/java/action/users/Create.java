@@ -37,11 +37,12 @@ public class Create extends ActionSupport implements SessionAware {
 
         } catch (SQLException ex) {
             // handle any errors
-
             System.out.println("SQLException:\n\n\n " + ex.getMessage());
             System.out.println("SQLState:\n\n\n " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
 
+            return ERROR;
+        } catch(Exception e) {
             return ERROR;
         }
 
@@ -71,4 +72,29 @@ public class Create extends ActionSupport implements SessionAware {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    public void validate() {
+        if (personBean.getName() == null || personBean.getName().trim().equals("")) {
+            addFieldError("personBean.name","The name is required");
+        } else if(!personBean.getName().matches("[a-zA-Z\\s\'\"]+")) {
+            addFieldError("personBean.name","Name should not have special characters");
+        }
+
+        String mobileStr = Long.toString(personBean.getMobile());
+
+        if (mobileStr.length() != 10) {
+            addFieldError("personBean.mobile","Mobile number should be 10 digits long");
+        } else if(mobileStr.charAt(0) != '9' && mobileStr.charAt(0) != '8' && mobileStr.charAt(0) != '7') {
+            addFieldError("personBean.mobile","Mobile number should start with 9, 8 or 7");
+        }
+
+        if (personBean.getEmail() == null || personBean.getEmail().trim().equals("")) {
+            addFieldError("personBean.username","The name is required");
+        } else if(personBean.getEmail().indexOf('@') == -1 || personBean.getEmail().indexOf('.') == -1 ) {
+            addFieldError("personBean.username","Invalid Email Address");
+        }
+
+
+    }
+
 }

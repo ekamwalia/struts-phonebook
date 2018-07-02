@@ -18,13 +18,12 @@ public class ViewAllLogs extends ActionSupport{
             ArrayList<Log> rowValues = new ArrayList<Log>();
 
             db = new DatabaseHelper();
-            String query = "Select * from logs ";
+            String query = "Select * from logs order by id desc ";
             db.rs = db.stmt.executeQuery(query);
 
 
             while(db.rs.next()) {
 
-                System.out.println("HERE in the result set!!!! -----------------------\n");
 
                 Log tempLog = new Log();
                 tempLog.setId(db.rs.getInt("id"));
@@ -37,7 +36,6 @@ public class ViewAllLogs extends ActionSupport{
 
             logs = rowValues.toArray(new Log[rowValues.size()]);
 
-            System.out.println("HERE !!!! -----------------------\n\n\n\n\n\n\n\n");
             for(int i=0,n=logs.length;i<n;i++) {
                 System.out.println(logs[i].toString());
             }
@@ -48,6 +46,8 @@ public class ViewAllLogs extends ActionSupport{
             System.out.println("SQLState:\n\n\n " + ex.getSQLState());
             System.out.println("VendorError:\n\n\n " + ex.getErrorCode());
 
+            return ERROR;
+        } catch(Exception e) {
             return ERROR;
         }
 

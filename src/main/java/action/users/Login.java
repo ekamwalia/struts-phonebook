@@ -26,7 +26,6 @@ public class Login extends ActionSupport implements SessionAware {
             db.rs = db.stmt.executeQuery(query);
 
             if (!db.rs.next() ) {
-                System.out.println("HERE-------------------------------------------------------------------------------------------\n\n\n\n\n\n" + "ERROR HAI");
                 return ERROR;
             } else {
 
@@ -40,7 +39,6 @@ public class Login extends ActionSupport implements SessionAware {
                     if(userData.getPassword().equals( userBean.getPassword()))
                         setSessionParameters();
                     else {
-                        System.out.println("HERE-------------------------------------------------------------------------------------------\n\n\n\n\n\n" + "Password dont match");
                         System.out.println(userData.getPassword() + "  and   " + userBean.getPassword());
                         return ERROR;
                     }
@@ -48,13 +46,14 @@ public class Login extends ActionSupport implements SessionAware {
 
         } catch (SQLException ex) {
             // handle any errors
-            System.out.println("HERE-------------------------------------------------------------------------------------------\n\n\n\n\n\n");
             System.out.println("SQLException:\n\n\n " + ex.getMessage());
             System.out.println("SQLState:\n\n\n " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
 
             return ERROR;
 
+        } catch(Exception e) {
+            return ERROR;
         }
 
         return SUCCESS;

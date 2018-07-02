@@ -14,11 +14,13 @@
 
         <action name="registerUser" class="action.users.Register" method="execute">
             <result name="success">/index.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="input">/index.jsp</result>
         </action>
 
         <action name="loginUser" class="action.users.Login" method="execute">
             <result name="success">/home.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/index.jsp</result>
         </action>
 
         <action name="logout" class="action.users.Logout" method="execute">
@@ -28,24 +30,25 @@
         <action name="create" class="action.users.Create" method="execute">
             <result name="success">/viewContact.jsp</result>
             <result name="error">/error.jsp</result>
+            <result name="input">/registerForm.jsp</result>
         </action>
 
-        <action name="view" class="action.users.Read" method="execute">
+        <action name="view" class="controllers.PersonController" method="viewPerson">
             <result name="success">/viewContact.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="delete" class="action.users.Delete" method="execute">
+        <action name="delete" class="controllers.PersonController" method="deletePerson">
             <result name="success">/thankyou.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="update" class="action.users.Update" method="execute">
+        <action name="update" class="controllers.PersonController" method="updatePerson">
             <result name="success">/thankyou.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="viewAllUsers" class="action.admin.ViewAllUsers" method="execute">
+        <action name="viewAllUsers" class="controllers.UserController" method="viewAllUsers">
             <result name="success">/allUsers.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
@@ -55,6 +58,15 @@
             <result name="error">/error.jsp</result>
         </action>
 
+        <action name="grantAdminAccess" class="controllers.UserController" method="grantAdminAccess">
+            <result name="success">/home.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="revokeAdminAccess" class="controllers.UserController" method="revokeAdminAccess">
+            <result name="success">/home.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
     </package>
 
 </struts>
