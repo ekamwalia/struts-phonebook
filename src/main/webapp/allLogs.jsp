@@ -19,29 +19,36 @@
         <ul class="nav navbar-nav navbar-right">
             <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
             <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
+            <li><a href='home.jsp'>Home</a></li>
         </ul>
     </div>
 </nav>
 
+<div class="container">
 
-<h3>All Users</h3>
-<table class="borderAll">
-    <tr>
-        <th>Log ID &nbsp;</th>
-        <th>Contact Name &nbsp;</th>
-        <th>User Id &nbsp;</th>
-        <th>Operation &nbsp;</th>
-    </tr>
-    <s:iterator value="logs" status="status">
-        <tr>
-            <td class="nowrap"><s:property value="id"/></td>
-            <td class="nowrap"><s:property value="contactName"/></td>
-            <td class="nowrap"><s:property value="userId"/></td>
-            <td class="nowrap"><s:property value="operation"/></td>
-        </tr>
-    </s:iterator>
-</table>
+    <div class="row col-centered">
+        <h3>All Logs</h3>
+    </div>
 
-<p><a href='home.jsp'>Return to homepage</a></p>
+    <div class="row col-centered">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Log ID &nbsp;</th>
+                <th>Contact Name &nbsp;</th>
+                <th>User Id &nbsp;</th>
+                <th>Operation &nbsp;</th>
+            </tr>
+            <s:iterator value="logs" status="status">
+                <tr>
+                    <td class="nowrap"><s:property value="id"/></td>
+                    <td class="nowrap"><s:property value="contactName"/></td>
+                    <td class="nowrap"><s:property value="userId"/></td>
+                    <td class="nowrap"><s:property value="operation"/></td>
+                </tr>
+            </s:iterator>
+        </table>
+    </div>
+</div>
+
 </body>
 </html>

@@ -91,7 +91,7 @@ public class Create extends ActionSupport implements SessionAware {
         if (personBean.getEmail() == null || personBean.getEmail().trim().equals("")) {
             addFieldError("personBean.username","The name is required");
         } else if(personBean.getEmail().indexOf('@') == -1 || personBean.getEmail().indexOf('.') == -1 ) {
-            addFieldError("personBean.username","Invalid Email Address");
+            addFieldError("personBean.email","Invalid Email Address");
         }
 
 

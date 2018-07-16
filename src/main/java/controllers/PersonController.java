@@ -5,6 +5,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.ArrayList;
 
 import action.DatabaseHelper;
 import model.Person;
@@ -21,6 +22,8 @@ public class PersonController extends ActionSupport implements SessionAware {
     private static final String USER_ACCESS = "userAccess";
 
     private int userId;
+
+    Person persons[];
 
     public String addPerson() throws Exception {
         try {
@@ -151,6 +154,49 @@ public class PersonController extends ActionSupport implements SessionAware {
         return SUCCESS;
     }
 
+    public String viewUsersContacts() throws Exception {
+        try {
+
+            ArrayList<Person> rowValues = new ArrayList<Person>();
+
+            db = new DatabaseHelper();
+            String query = "Select * from contacts where userId = " + userId;
+            db.rs = db.stmt.executeQuery(query);
+
+            System.out.println("HERE----------------------------\n\n\n" + username);
+            while(db.rs.next()) {
+
+                Person tempPerson = new Person();
+                tempPerson.setName(db.rs.getString("name"));
+                tempPerson.setEmail(db.rs.getString("email"));
+                tempPerson.setAge(db.rs.getInt("age"));
+                tempPerson.setMobile(db.rs.getLong("phone"));
+                rowValues.add(tempPerson);
+            }
+
+            persons = rowValues.toArray(new Person[rowValues.size()]);
+
+            for(int i=0,n=persons.length;i<n;i++) {
+                System.out.println(persons[i].toString());
+            }
+
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException:\n\n\n " + ex.getMessage());
+            System.out.println("SQLState:\n\n\n " + ex.getSQLState());
+            System.out.println("VendorError:\n\n\n " + ex.getErrorCode());
+
+            return ERROR;
+        } catch(Exception e) {
+            return ERROR;
+        }
+
+        return SUCCESS;
+    }
+
+    public Person[] getPersons() {
+        return persons;
+    }
 
     public Person getPersonBean() {
 
@@ -178,4 +224,7 @@ public class PersonController extends ActionSupport implements SessionAware {
         this.username = username;
     }
 
+    public String getUsername() {
+        return username;
+    }
 }

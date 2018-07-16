@@ -59,12 +59,22 @@
         </action>
 
         <action name="grantAdminAccess" class="controllers.UserController" method="grantAdminAccess">
-            <result name="success">/home.jsp</result>
+            <result name="success" type="chain">viewAllUsers</result>
             <result name="error">/error.jsp</result>
         </action>
 
         <action name="revokeAdminAccess" class="controllers.UserController" method="revokeAdminAccess">
-            <result name="success">/home.jsp</result>
+            <result name="success" type="chain">viewAllUsers</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="viewUsersContacts" class="controllers.PersonController" method="viewUsersContacts">
+            <result name="success">/viewUsersContacts.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="showActivityChart" class="action.admin.ViewAllLogs" method="makeChart">
+            <result name="success">/chart.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
     </package>

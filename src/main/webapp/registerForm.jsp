@@ -10,49 +10,51 @@
     <title>Register</title>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid text-light">
-        <div class="navbar-header text-light">
-            <h1 class="navbar-brand text-light">Phonebook</h1>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-light">
+            <div class="navbar-header text-light">
+                <h1 class="navbar-brand text-light">Phonebook</h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
+                <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
+                <li><a href='home.jsp'>Home</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
-            <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-centered">
-            <h3 class="text-center">Enter details for the new contact</h3>
-            <s:form action="create">
-                <div class="form-group">
-                    <s:textfield name="personBean.name" value="Name" cssClass="form-control" />
-                </div>
-                <div class="form-group">
-                    <s:textfield name="personBean.mobile" value="Mobile" cssClass="form-control" />
-                </div>
-                <div class="form-group">
-                    <s:textfield name="personBean.email"  value="Email" cssClass="form-control" />
-                </div>
-                <div class="form-group">
-                    <s:textfield name="personBean.age"  value="Age" cssClass="form-control" />
-                </div>
-                <div class="form-group">
-                    <sx:datetimepicker label="Date of Birth" name="dob" displayFormat="dd-MMM-yyyy" required="true" />
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-centered">
+                <h3 class="text-center">Enter details for the new contact</h3>
+                <s:form action="create">
+                    <div class="form-group">
+                        <s:textfield name="personBean.name" placeholder="Name" cssClass="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <s:textfield name="personBean.mobile" placeholder="Mobile" cssClass="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <s:textfield name="personBean.email"  placeholder="Email" cssClass="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <s:textfield name="personBean.age"  placeholder="Age" cssClass="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <sx:datetimepicker label="Date of Birth" name="dob" displayFormat="dd-MMM-yyyy" required="true" />
+                    </div>
 
-                <div class="form-group">
-                    <s:if test = "#session.userAccess==1">
-                        <s:textfield name="userId" value="User Id" cssClass="form-control" />
-                    </s:if>
-                </div>
-                <s:submit cssClass="btn btn-primary"/>
-            </s:form>
+                    <div class="form-group">
+                        <s:if test = "#session.userAccess==1">
+                            <s:textfield name="userId" placeholder="User Id" cssClass="form-control" />
+                        </s:if>
+                    </div>
+                    <s:submit cssClass="btn btn-primary"/>
+                </s:form>
+            </div>
         </div>
     </div>
-</div>
+
 </body>
 </html>

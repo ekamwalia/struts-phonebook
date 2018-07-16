@@ -10,19 +10,20 @@
     <title>Contact added to phonebook</title>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid text-light">
-        <div class="navbar-header text-light">
-            <h1 class="navbar-brand text-light">Phonebook</h1>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-light">
+            <div class="navbar-header text-light">
+                <h1 class="navbar-brand text-light">Phonebook</h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
+                <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
+                <li><a href='home.jsp'>Home</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
-            <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
-Contact Updated/Deleted Successfully!
-<p><a href='home.jsp' >Return to home page</a></p>
+    Contact Updated/Deleted Successfully!
+
 </body>
 </html>

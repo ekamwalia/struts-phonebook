@@ -17,49 +17,61 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid text-light">
-        <div class="navbar-header text-light">
-            <h1 class="navbar-brand text-light">Phonebook</h1>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-light">
+            <div class="navbar-header text-light">
+                <h1 class="navbar-brand text-light">Phonebook</h1>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
+                    <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
+                    <li><a href='home.jsp'>Home</a></li>
+                </ul>
+            </div>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
-            <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container container-padding">
+    </nav>
 
-    <div class="list-group">
-        <a href="registerForm.jsp" class="list-group-item">
-            <h4 class="list-group-item-heading">Add Contact</h4>
-            <p class="list-group-item-text">Add a new contact to your phonebook</p>
-        </a>
-        <a href="viewForm.jsp" class="list-group-item">
-            <h4 class="list-group-item-heading">Find Contact</h4>
-            <p class="list-group-item-text">Find a contact stored in your phonebook</p>
-        </a>
-        <a href="updateForm.jsp" class="list-group-item">
-            <h4 class="list-group-item-heading">Update Contact</h4>
-            <p class="list-group-item-text">Update an existing contact from your phonebook</p>
-        </a>
-        <a href="deleteForm.jsp" class="list-group-item">
-            <h4 class="list-group-item-heading">Delete Contact</h4>
-            <p class="list-group-item-text">Delete an existing contact from your phonebook</p>
-        </a>
+    <div class="container container-padding">
 
-        <s:if test = "#session.userAccess==1">
-            <a href="<s:url action="viewAllUsers" />" class="list-group-item">
-                <h4 class="list-group-item-heading">View All Users</h4>
-                <p class="list-group-item-text">View all users who are registered on this platform</p>
+        <div class="list-group">
+            <a href="registerForm.jsp" class="list-group-item">
+                <h4 class="list-group-item-heading">Add Contact</h4>
+                <p class="list-group-item-text">Add a new contact to your phonebook</p>
             </a>
-            <a href="<s:url action="viewLogs" />" class="list-group-item">
-                <h4 class="list-group-item-heading">View Logs</h4>
-                <p class="list-group-item-text">View the recent activity of all users using this platform</p>
+            <a href="viewForm.jsp" class="list-group-item">
+                <h4 class="list-group-item-heading">Find Contact</h4>
+                <p class="list-group-item-text">Find a contact stored in your phonebook</p>
+            </a>
+            <a href="updateForm.jsp" class="list-group-item">
+                <h4 class="list-group-item-heading">Update Contact</h4>
+                <p class="list-group-item-text">Update an existing contact from your phonebook</p>
+            </a>
+            <a href="deleteForm.jsp" class="list-group-item">
+                <h4 class="list-group-item-heading">Delete Contact</h4>
+                <p class="list-group-item-text">Delete an existing contact from your phonebook</p>
             </a>
 
-        </s:if>
+            <s:if test = "#session.userAccess==1">
+
+                <a href="<s:url action="viewAllUsers" />" class="list-group-item">
+                    <h4 class="list-group-item-heading">View All Users</h4>
+                    <p class="list-group-item-text">View all users who are registered on this platform</p>
+                </a>
+
+                <a href="<s:url action="viewLogs" />" class="list-group-item">
+                    <h4 class="list-group-item-heading">View Logs</h4>
+                    <p class="list-group-item-text">View the recent activity of all users using this platform</p>
+                </a>
+
+                <a href="<s:url action="showActivityChart" />" class="list-group-item">
+                    <h4 class="list-group-item-heading">Show Charts</h4>
+                    <p class="list-group-item-text">View the charts of usage activity by all users</p>
+                </a>
+
+            </s:if>
+        </div>
     </div>
-</div>
+
 </body>
 </html>

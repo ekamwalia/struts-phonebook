@@ -18,6 +18,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><span class="glyphicon glyphicon-user"></span>Welcome, <s:property value="#session.username" /></li>
             <li><a href='<s:url action="logout" />'><span class="glyphicon glyphicon-user">Logout</span></a></li>
+            <li><a href='home.jsp'>Home</a></li>
         </ul>
     </div>
 </nav>
@@ -28,11 +29,11 @@
             <h3 class="text-center">Enter details of the contact you want to delete</h3>
             <s:form action="delete">
                 <div class="form-group">
-                    <s:textfield name="username" value="Name" cssClass="form-control" />
+                    <s:textfield name="username" placeholder="Name" cssClass="form-control" />
                 </div>
                 <div class="form-group">
                     <s:if test = "#session.userAccess==1">
-                        <s:textfield name="userId" value="User Id" cssClass="form-control" />
+                        <s:textfield name="userId" placeholder="User Id" cssClass="form-control" />
                     </s:if>
                 </div>
                 <s:submit cssClass="btn btn-primary"/>

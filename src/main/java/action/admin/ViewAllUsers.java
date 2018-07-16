@@ -5,8 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.User;
 import action.DatabaseHelper;
+import model.User;
 
 public class ViewAllUsers extends ActionSupport{
     private DatabaseHelper db;
